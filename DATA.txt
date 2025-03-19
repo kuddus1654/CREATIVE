@@ -1,0 +1,92 @@
+1.ARDUINO 
+
+
+// C++ code
+//
+void setup()
+{
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+}
+
+
+
+2.Servo
+
+#include<Servo.h>
+Servo servoBase;
+void setup(){
+  servoBase.attach(A1);
+  servoBase.write(0);
+  Serial.begin(9600);
+ 
+
+}
+void loop(){
+  for (int i=0; i<=180; i+=10){
+  servoBase.write(i);
+  delay(1000);}
+
+}
+
+
+3. humudity
+
+const int analogIN(A1);
+int humuditysensoroutput=0;
+void setup(){
+  Serial.begin(9600);
+ 
+
+}
+void loop(){
+  humuditysensoroutput=analogRead(analogIN);
+  int humuditypercentage=map(humuditysensoroutput,0,1023,10,70);
+  Serial.println("hummudity");
+  Serial.println(humuditypercentage);
+  Serial.println("%");
+  delay(2000);
+
+}
+
+4.LDR
+
+int sV(0);
+void setup(){
+pinMode(A0,INPUT);
+  pinMode(0,OUTPUT);
+  Serial.begin(9600);
+}
+void loop(){
+  sV=analogRead(A0);
+  Serial.println(sV);
+  analogWrite(9,map(sV,0,1023,255,0));
+  delay(1000);
+
+}
+
+5. TEMPERATURE
+
+char degree=176;
+const int sensor=A1;
+void setup()
+{
+  pinMode(sensor,OUTPUT);
+  Serial.begin(9600);
+}
+void loop(){
+int tmp=analogRead(sensor);
+  float voltage=(tmp*0.5)/1024;
+  float tmpcel=(voltage-0.5)*100.0;
+  Serial.println("voltage");
+  Serial.println("celsium");
+  Serial.println("Degree");
+delay(2000);
+}
