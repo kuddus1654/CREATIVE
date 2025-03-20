@@ -90,3 +90,28 @@ int tmp=analogRead(sensor);
   Serial.println("Degree");
 delay(2000);
 }
+
+6.servo
+
+/ Include the Servo library
+
+#include <Servo.h>
+
+Servo servo Base; // Create a Servo object and assign it a specific name
+
+void setup(){
+
+servoBasc.attach(A1); // Specify the pin to use for the servo
+
+servo Base.write(0); // Set the servo motor to the 0-degree position
+}
+
+void loop() {
+
+// Sweep the servo from 0 to 180 degrees in steps of 10 degrees
+
+for (int i=0; i<=180:i+=10) {
+
+servoBase.write(i); // Set the servo to the current angle
+
+delay (2000):}}
